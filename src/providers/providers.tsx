@@ -1,11 +1,12 @@
 'use client';
 import React from 'react';
 import ThemeProvider from './ThemeProvider';
+import { ReduxProvider } from './ReduxProvider';
 
 export const Providers = ({ children }: { children: React.ReactNode }) => {
   return (
-    // <ReduxProvider>
-      // <AuthProvider>
+    <ReduxProvider>
+      {/* <AuthProvider> */}
         <ThemeProvider>
           {/* <NotificationProvider> */}
             {/* <BlockProvider> */}
@@ -17,7 +18,7 @@ export const Providers = ({ children }: { children: React.ReactNode }) => {
             {/* </BlockProvider> */}
           {/* </NotificationProvider> */}
         </ThemeProvider>
-      // </AuthProvider>
-    // </ReduxProvider>
+      {/* </AuthProvider> */}
+    </ReduxProvider>
   );
 };
