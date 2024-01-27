@@ -2,6 +2,6 @@ import { Typography } from "@mui/material";
 
 export default function Home() {
   return (
-    <Typography>Page</Typography>
+    <Typography>Page 1</Typography>
   )
 }
