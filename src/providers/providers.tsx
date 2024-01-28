@@ -2,23 +2,25 @@
 import React from 'react';
 import ThemeProvider from './ThemeProvider';
 import { ReduxProvider } from './ReduxProvider';
+import { AuthProvider } from './AuthProvider';
+import LayoutProvider from './LayoutProvider';
 
 export const Providers = ({ children }: { children: React.ReactNode }) => {
   return (
     <ReduxProvider>
-      {/* <AuthProvider> */}
+      <AuthProvider>
         <ThemeProvider>
           {/* <NotificationProvider> */}
             {/* <BlockProvider> */}
-              {/* <LayoutProvider> */}
+              <LayoutProvider>
                 {/* <PersistGate loading={children} persistor={persistor}> */}
                   {children}
                 {/* </PersistGate> */}
-              {/* </LayoutProvider> */}
+              </LayoutProvider>
             {/* </BlockProvider> */}
           {/* </NotificationProvider> */}
         </ThemeProvider>
-      {/* </AuthProvider> */}
+      </AuthProvider>
     </ReduxProvider>
   );
 };

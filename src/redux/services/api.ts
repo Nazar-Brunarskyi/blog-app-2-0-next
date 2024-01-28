@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-// import { auth } from '../../../src/config/firebase';
+import { auth } from '../../../src/config/firebase';
 
 export const api = createApi({
   reducerPath: 'api',
@@ -7,15 +7,16 @@ export const api = createApi({
     baseUrl: process.env.NEXT_PUBLIC_BASE_URL,
 
     prepareHeaders: async (headers) => {
-      // const token = await auth.currentUser?.getIdToken();
-      const token = undefined;
+      const token = await auth.currentUser?.getIdToken();
 
       if (token) {
+        console.log(token);
+        
         headers.set('Authorization', `Bearer ${token}`);
       }
       return headers;
     },
   }),
-  tagTypes: [],
+  tagTypes: ['Current-user'],
   endpoints: () => ({}),
 });
