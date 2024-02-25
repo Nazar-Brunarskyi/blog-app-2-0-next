@@ -10,8 +10,10 @@ import useSignup from "@/src/hooks/auth/useSignUp";
 import { useState } from "react";
 import { Alert } from "@mui/material";
 import withoutAuth from "@/src/hocs/withoutAuth/withoutAuth";
+import { useRouter } from "next/navigation";
 
 function SignUp() {
+  const router = useRouter();
   const { handleSignup } = useSignup();
   const [error, setError] = useState<string | null>(null);
 
@@ -33,6 +35,7 @@ function SignUp() {
     if (error) {
       setError(error);
     } else {
+      router.push('/subscription')
       setError(null);
     }
   };

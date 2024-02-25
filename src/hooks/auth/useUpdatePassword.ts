@@ -11,7 +11,7 @@ export function useUpdatePassword() {
         await firebaseUpdatePassword(user, newPassword);
       }
     } catch (e: any) {
-      console.log('error');
+      console.error('error');
     }
   }, []);
 

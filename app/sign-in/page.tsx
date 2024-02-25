@@ -23,7 +23,6 @@ function SignIn() {
       password: data.get("password") as string,
     };
 
-    console.log(credentials);
     const {error} = await signIn(credentials.email, credentials.password);
 
     if (error) {

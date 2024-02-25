@@ -15,7 +15,7 @@ function withAuth(Component: React.ComponentType<any>) {
       isLoading,
       isFetching,
     } = useGetUserByFirebaseUidQuery(undefined, { skip: initializing || !user });
-
+    
     useEffect(() => {
       if (initializing) return;
 
@@ -24,14 +24,15 @@ function withAuth(Component: React.ComponentType<any>) {
           return;
         }
 
-        router.replace('/auth/sign-in');
+        router.replace('/sign-in');
         return;
-      } else {
-        if (!user.emailVerified) {
-          router.replace('/auth/verify-email');
-          return;
-        }
-      }
+      } 
+      // else {
+      //   if (!user.emailVerified) {
+      //     router.replace('/auth/verify-email');
+      //     return;
+      //   }
+      // }
     }, [user, initializing]);
 
     return !initializing && !isLoading && !isFetching && user && internalUser ? (
