@@ -7,7 +7,7 @@ export function useSignOut() {
     try {
       await firebaseSignOut(auth);
     } catch (e: any) {
-      console.log("error");
+      console.error("error with Signing Out");
     }
   }, []);
 

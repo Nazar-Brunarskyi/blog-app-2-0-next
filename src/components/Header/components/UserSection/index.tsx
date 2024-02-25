@@ -13,6 +13,8 @@ import {
 } from "@mui/material";
 import Link from "next/link";
 import { FC, useState } from "react";
+import { styles } from "./styles";
+import VerifiedIcon from '@mui/icons-material/Verified';
 
 const settings = ["Profile", "Account", "Dashboard"];
 
@@ -42,7 +44,12 @@ export const UserSection: FC = () => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" />
+                <Box sx={styles.avatarContainer}>
+                  <Avatar alt="Remy Sharp" />
+                  {
+                    internalUser?.subscription && <VerifiedIcon fontSize="small"  sx={styles.cerifiedIcon}/>
+                  }
+                </Box>
               </IconButton>
             </Tooltip>
             <Menu

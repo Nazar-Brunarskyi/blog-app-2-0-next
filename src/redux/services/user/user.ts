@@ -2,7 +2,7 @@ import { IUser } from "@/src/types/interfaces/user";
 import { api } from "../api";
 import { ICreateUserDto, ICreateUserNameDto } from "@/src/types/DTOs/user";
 
-const attorneyAPI = api.injectEndpoints({
+const userAPI = api.injectEndpoints({
   endpoints: (builder) => ({
     getUserByFirebaseUid: builder.query<IUser, string | undefined>({
       query: () => `user/fb-id`,
@@ -30,4 +30,4 @@ export const {
   useCreateUserMutation,
   useCheckUserNameMutation,
   useGetUserByFirebaseUidQuery,
-} = attorneyAPI;
+} = userAPI;
